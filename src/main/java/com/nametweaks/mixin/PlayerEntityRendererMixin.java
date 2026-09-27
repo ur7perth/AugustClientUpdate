@@ -8,7 +8,6 @@ import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.PlayerEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.Text;
 import org.joml.Matrix4f;
 import org.spongepowered.asm.mixin.Mixin;
@@ -21,7 +20,8 @@ public abstract class PlayerEntityRendererMixin {
 
     @Inject(method = "renderLabelIfPresent", at = @At("HEAD"), cancellable = true)
     private void nametweaks$hideSelfInF5(AbstractClientPlayerEntity player, Text text, MatrixStack matrices,
-                                          VertexConsumerProvider vertexConsumers, int light, CallbackInfo ci) {
+                                          VertexConsumerProvider vertexConsumers, int light, float tickDelta,
+                                          CallbackInfo ci) {
         MinecraftClient client = MinecraftClient.getInstance();
         ModConfig cfg = NameTweaksClient.CONFIG;
         boolean isSelf = player == client.player;
@@ -33,7 +33,8 @@ public abstract class PlayerEntityRendererMixin {
 
     @Inject(method = "renderLabelIfPresent", at = @At("TAIL"))
     private void nametweaks$renderPing(AbstractClientPlayerEntity player, Text text, MatrixStack matrices,
-                                        VertexConsumerProvider vertexConsumers, int light, CallbackInfo ci) {
+                                        VertexConsumerProvider vertexConsumers, int light, float tickDelta,
+                                        CallbackInfo ci) {
         ModConfig cfg = NameTweaksClient.CONFIG;
         if (!cfg.nameTagPingEnabled) return;
 
