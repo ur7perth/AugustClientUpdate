@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "com.nametweaks.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "PlayerEntityRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "nametweaks-refmap.json"
+}
