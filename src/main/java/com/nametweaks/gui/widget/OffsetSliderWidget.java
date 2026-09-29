@@ -35,7 +35,7 @@ public class OffsetSliderWidget extends SliderWidget {
     }
 
     @Override
-    protected void renderWidget(DrawContext context, int mouseX, int mouseY, float delta) {
+    public void renderWidget(DrawContext context, int mouseX, int mouseY, float delta) {
         boolean hovered = isMouseOver(mouseX, mouseY);
 
         context.fill(getX(), getY(), getX() + width, getY() + height, 0xFF232329);
