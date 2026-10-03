@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "augustclient",
+  "name": "AugustClient",
+  "version": "${version}",
+  "description": "AugustClient PvP & Competitive Mod for 1.21",
+  "authors": [
+    "User"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.augustclient.AugustClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.15.11",
+    "minecraft": "~1.21",
+    "java": ">=21"
+  }
+}
